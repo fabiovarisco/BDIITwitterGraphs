@@ -18,19 +18,15 @@ public class Profile {
 	private Date createdDate;
 	private int followersCount, statusesCount, friendsCount, favouritesCount;
 	
-	@Relationship(type="TWEETED", direction=Relationship.UNDIRECTED)
+	@Relationship(type="TWEETED", direction=Relationship.OUTGOING)
 	private List<Tweet> tweets;
 	
 	@Relationship(type="FOLLOWED_BY", direction=Relationship.OUTGOING)
 	private List<Profile> followers;
 	
-	@Relationship(type="FOLLOWING", direction=Relationship.UNDIRECTED)
-	private List<Profile> friends;
-	
 	public Profile() {
 		tweets = new ArrayList<Tweet>();
 		followers = new ArrayList<>();
-		friends = new ArrayList<>();
 	}
 	
 	public Profile (TwitterProfile tp) {
@@ -157,13 +153,5 @@ public class Profile {
 
 	public void setFollowers(List<Profile> followers) {
 		this.followers = followers;
-	}
-
-	public List<Profile> getFriends() {
-		return friends;
-	}
-
-	public void setFriends(List<Profile> friends) {
-		this.friends = friends;
 	}
 }

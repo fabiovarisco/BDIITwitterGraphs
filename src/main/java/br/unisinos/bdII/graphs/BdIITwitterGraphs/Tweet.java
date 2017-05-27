@@ -49,7 +49,6 @@ public class Tweet  {
 		this.retweetCount = t.getRetweetCount();
 		this.retweeted = t.isRetweeted();
 		this.favoritesCount = t.getFavoriteCount();
-	//	this.user = new Profile(t.getUser());
 		this.hashtags = new ArrayList<>();
 		for (HashTagEntity ht : t.getEntities().getHashTags()) 
 			this.hashtags.add(ht.getText());
